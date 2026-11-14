@@ -1,0 +1,105 @@
+name: Window opener
+products:
+  - id: af18okda4fo2iufc
+    model: ML-1006
+entities:
+  - entity: cover
+    class: window
+    dps:
+      - id: 2
+        type: string
+        name: control
+        mapping:
+          - dps_val: open
+            value: open
+          - dps_val: stop
+            value: stop
+          - dps_val: close
+            value: close
+          - dps_val: continue
+            # HA does not support this
+            hidden: true
+      - id: 7
+        type: integer
+        name: position
+        range:
+          min: 0
+          max: 100
+      - id: 8
+        type: integer
+        name: current_position
+        optional: true
+        range:
+          min: 0
+          max: 100
+      - id: 1
+        type: string
+        name: open
+        optional: true
+        mapping:
+          - dps_val: opened
+            value: true
+          - dps_val: closed
+            value: false
+  - entity: select
+    name: Speed
+    category: config
+    dps:
+      - id: 15
+        type: string
+        name: option
+        optional: true
+        mapping:
+          - dps_val: soft
+            value: Soft
+          - dps_val: normal
+            value: Normal
+          - dps_val: quick
+            value: Quick
+  - entity: switch
+    name: Calibration
+    category: config
+    dps:
+      - id: 16
+        type: boolean
+        name: switch
+        optional: true
+  - entity: switch
+    name: Anti-pinch
+    category: config
+    dps:
+      - id: 25
+        type: boolean
+        name: switch
+        optional: true
+  - entity: select
+    name: Anti-pinch strength
+    category: config
+    dps:
+      - id: 26
+        type: string
+        name: option
+        optional: true
+        mapping:
+          - dps_val: level_1
+            value: Low
+          - dps_val: level_2
+            value: Medium
+          - dps_val: level_3
+            value: High
+  - entity: sensor
+    name: Weather
+    class: enum
+    category: diagnostic
+    dps:
+      - id: 21
+        type: string
+        name: sensor
+        optional: true
+        mapping:
+          - dps_val: cloudy
+            value: Cloudy
+          - dps_val: rainy
+            value: Rainy
+          - dps_val: sunny
+            value: Sunny
