@@ -25,22 +25,12 @@ entities:
         range:
           min: 0
           max: 100
-      - id: 8
+      - id: 7
         type: integer
         name: current_position
-        optional: true
         range:
           min: 0
           max: 100
-      - id: 1
-        type: string
-        name: open
-        optional: true
-        mapping:
-          - dps_val: opened
-            value: true
-          - dps_val: closed
-            value: false
   - entity: select
     name: Speed
     category: config
